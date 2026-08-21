@@ -1,16 +1,8 @@
-# UNAFFILIATED placeholder
+# UNAFFILIATED v0.2
 
-Ultra-minimal static placeholder for unaffiliated.page.
+Same ultra-minimal placeholder, now with the UNAFFILIATED X integrated in two places:
 
-## Files
-- index.html
-- style.css
-- script.js
+- X favicon in the browser tab
+- Small X mark in the upper-right of the page
 
-## Run locally
-Just open `index.html` in a browser, or serve the folder with any static server.
-
-## Next
-Replace each `href="#"` in `index.html` with the real project URL when ready.
-
-Then deploy the folder to Vercel and connect `unaffiliated.page`.
+Upload these files to the root of the existing GitHub `unaffiliated` repository, replacing the old versions where prompted. Vercel should redeploy automatically.

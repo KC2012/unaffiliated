@@ -35,7 +35,19 @@ body {
 }
 
 .masthead {
+  position: relative;
   margin-bottom: 60px;
+  padding-right: 92px;
+}
+
+.x-mark {
+  position: absolute;
+  top: -6px;
+  right: 0;
+  width: 62px;
+  height: 62px;
+  object-fit: contain;
+  opacity: 0.82;
 }
 
 .brand {
@@ -174,6 +186,14 @@ footer {
 
   .masthead {
     margin-bottom: 44px;
+    padding-right: 62px;
+  }
+
+  .x-mark {
+    top: -2px;
+    width: 44px;
+    height: 44px;
+    opacity: 0.82;
   }
 
   .project {
