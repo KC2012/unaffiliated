@@ -51,7 +51,8 @@ body {
 }
 
 .brand {
-  font-size: clamp(21px, 3vw, 28px);
+  font-size: clamp(30px, 3.5vw, 42px);
+  line-height: 1;
   letter-spacing: 0.16em;
   font-weight: 700;
 }
