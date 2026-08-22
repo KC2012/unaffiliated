@@ -42,10 +42,10 @@ body {
 
 .x-mark {
   position: absolute;
-  top: -2px;
-  right: 0;
-  width: 62px;
-  height: 62px;
+  top: -30px;
+  right: -15px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
   opacity: 0.82;
 }
