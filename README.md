@@ -1,8 +1,18 @@
-# UNAFFILIATED v0.2
+# UNAFFILIATED music placeholder
 
-Same ultra-minimal placeholder, now with the UNAFFILIATED X integrated in two places:
+Drop the entire `music` folder into the root of your existing repo.
 
-- X favicon in the browser tab
-- Small X mark in the upper-right of the page
+That gives you:
+`https://unaffiliated.page/music/`
 
-Upload these files to the root of the existing GitHub `unaffiliated` repository, replacing the old versions where prompted. Vercel should redeploy automatically.
+Then add a homepage project row linking to `/music/`.
+
+Suggested copy:
+005  AUDIO
+     recordings / works / experiments
+     [listen]
+
+Later we can add:
+- `music/audio/` for MP3/OGG files
+- `music/art/` for tiny cover images
+- `music/visuals/` for track-specific visualizers
