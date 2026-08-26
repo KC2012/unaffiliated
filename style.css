@@ -228,3 +228,41 @@ footer {
     animation: none;
   }
 }
+
+/* UNAFFILIATED contact page */
+.footer-row a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-row a:hover,
+.footer-row a:focus-visible {
+  color: var(--accent);
+  outline: none;
+}
+
+.contact-section {
+  min-height: 260px;
+}
+
+.contact-copy {
+  margin: 0 0 22px;
+  color: var(--muted);
+}
+
+.contact-address-wrap {
+  margin: 0;
+}
+
+.contact-address {
+  color: var(--fg);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
+
+.contact-address:hover,
+.contact-address:focus-visible {
+  color: var(--accent);
+  outline: none;
+}
+
