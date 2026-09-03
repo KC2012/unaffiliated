@@ -1,5 +1,4 @@
-// Prevent inactive project links from jumping to the top,
-// and give "Processing" projects a minimal pending indicator.
+// Project status LEDs.
 document.querySelectorAll(".project").forEach((project) => {
   const title = project.querySelector(".project-title");
   const action = project.querySelector(".project-action");
@@ -8,25 +7,46 @@ document.querySelectorAll(".project").forEach((project) => {
   if (isPending) {
     project.classList.add("project-pending");
     project.setAttribute("aria-disabled", "true");
-
     if (action) {
-      action.innerHTML = '<span class="pending-led" aria-hidden="true"></span><span>[pending]</span>';
+      action.innerHTML =
+        '<span class="status-led status-led-pending" aria-hidden="true"></span><span>[pending]</span>';
     }
-
-    project.addEventListener("click", (event) => {
-      event.preventDefault();
-    });
-  } else if (project.getAttribute("href") === "#") {
-    project.addEventListener("click", (event) => {
-      event.preventDefault();
-    });
+    project.addEventListener("click", (event) => event.preventDefault());
+  } else {
+    project.classList.add("project-active");
+    if (action) {
+      const label = action.textContent.trim();
+      action.innerHTML =
+        '<span class="status-led status-led-active" aria-hidden="true"></span><span>' +
+        label +
+        '</span>';
+    }
+    if (project.getAttribute("href") === "#") {
+      project.addEventListener("click", (event) => event.preventDefault());
+    }
   }
 });
 
-// Keep the status treatment self-contained so this update only requires
-// replacing script.js.
 const statusStyles = document.createElement("style");
 statusStyles.textContent = `
+  .project-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .status-led {
+    width: 6px;
+    height: 6px;
+    flex: 0 0 6px;
+    border-radius: 50%;
+  }
+
+  .status-led-active {
+    background: #39a85a;
+    box-shadow: 0 0 5px rgba(57, 168, 90, 0.42);
+  }
+
   .project-pending {
     cursor: default;
   }
@@ -37,23 +57,13 @@ statusStyles.textContent = `
     color: inherit;
   }
 
-  .project-pending .project-action {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--muted);
-  }
-
+  .project-pending .project-action,
   .project-pending:hover .project-action,
   .project-pending:focus-visible .project-action {
     color: var(--muted);
   }
 
-  .pending-led {
-    width: 6px;
-    height: 6px;
-    flex: 0 0 6px;
-    border-radius: 50%;
+  .status-led-pending {
     background: #8f2323;
     box-shadow: 0 0 5px rgba(180, 38, 38, 0.38);
     animation: pendingPulse 1.6s ease-in-out infinite;
@@ -71,7 +81,7 @@ statusStyles.textContent = `
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .pending-led {
+    .status-led-pending {
       animation: none;
       opacity: 0.7;
     }
