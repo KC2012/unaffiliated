@@ -8,6 +8,24 @@
   <title>UNAFFILIATED</title>
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .quacky-separator {
+      opacity: .4;
+      margin: 0 .18em;
+    }
+    .quacky-films-link {
+      opacity: .58;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .quacky-films-link:hover,
+    .quacky-films-link:focus-visible {
+      opacity: 1;
+      text-decoration: underline;
+      text-underline-offset: .14em;
+      outline: none;
+    }
+  </style>
 </head>
 <body>
   <main class="shell">
@@ -27,7 +45,7 @@
         <span class="project-id">001</span>
         <span class="project-body">
           <span class="project-title">UNDERGRID</span>
-          <span class="project-desc">turn-based tactical experiment</span>
+          <span class="project-desc">turn-based tactical microcombat</span>
         </span>
         <span class="project-action">[launch]</span>
       </a>
@@ -72,7 +90,7 @@
         <span class="project-id">006</span>
         <span class="project-body">
           <span class="project-title">AUDIO</span>
-          <span class="project-desc">recordings / works / experiments</span>
+          <span class="project-desc">recordings / visuals / experiments</span>
         </span>
         <span class="project-action">[listen]</span>
       </a>
@@ -81,7 +99,7 @@
         <span class="project-id">007</span>
         <span class="project-body">
           <span class="project-title">QUAKY'S ARCADE</span>
-          <span class="project-desc">arcade games / toys / experiments</span>
+          <span class="project-desc">multiplayer arcade games with ducks <span class="quacky-separator">·</span> <span class="quacky-films-link" role="link" tabindex="0" data-href="https://www.youtube.com/@Quacky_films">Quacky Films ↗</span></span>
         </span>
         <span class="project-action">[launch]</span>
       </a>
@@ -92,7 +110,7 @@
 
       <article class="log-entry">
         <time datetime="2026-09-11">2026.09.11</time>
-        <p>Quaky's Duck Arcade online.</p>
+        <p>Quaky's Duck Arcade online</p>
       </article>
 
       <article class="log-entry">
@@ -146,5 +164,19 @@
   </main>
 
   <script src="script.js"></script>
+  <script>
+    document.querySelectorAll('.quacky-films-link').forEach(function (link) {
+      function openQuackyFilms(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        window.open(link.dataset.href, '_blank', 'noopener,noreferrer');
+      }
+      link.addEventListener('click', openQuackyFilms);
+      link.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter' || event.key === ' ') openQuackyFilms(event);
+      });
+    });
+  </script>
+
 </body>
 </html>
