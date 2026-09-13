@@ -25,13 +25,35 @@
       text-underline-offset: .14em;
       outline: none;
     }
+
+    .brand-logo {
+      display: block;
+      width: min(540px, calc(100% - 30px));
+      height: auto;
+      margin: 0;
+    }
+
+    @media (max-width: 640px) {
+      .brand-logo {
+        width: min(360px, calc(100% - 8px));
+      }
+    }
+
+    @media (min-width: 641px) {
+      .masthead .x-mark {
+        width: 122px;
+        height: 122px;
+        top: -18px;
+        right: -15px;
+      }
+    }
   </style>
 </head>
 <body>
   <main class="shell">
     <header class="masthead">
       <img class="x-mark" src="x-mark.png" alt="" aria-hidden="true" />
-      <div class="brand">UNAFFILIATED</div>
+      <img class="brand-logo" src="unaffiliated-wordmark.png" alt="UNAFFILIATED" />
       <div class="rule"></div>
       <p class="tagline">independent works / experiments / unfinished systems</p>
     </header>
@@ -107,11 +129,6 @@
 
     <section class="section log">
       <div class="section-label">LOG</div>
-
-      <article class="log-entry">
-        <time datetime="2026-09-12">2026.09.12</time>
-        <p>Undergrid update v1.40.4 - battlefield update online</p>
-      </article>
 
       <article class="log-entry">
         <time datetime="2026-09-11">2026.09.11</time>
