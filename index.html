@@ -26,26 +26,37 @@
       outline: none;
     }
 
-    .brand-logo {
+    /* One responsive horizontal logo lockup.
+       The X artwork is tightly cropped in x-mark-header.png.
+       Grid proportions match the two image aspect ratios, so the
+       visible X and UNAFFILIATED wordmark always render at equal height. */
+    .masthead {
+      padding-right: 0;
+    }
+
+    .brand-row {
+      display: grid;
+      grid-template-columns: 6.4279fr 1fr;
+      align-items: center;
+      gap: clamp(12px, 2.5vw, 24px);
+      width: 100%;
+    }
+
+    .brand-logo,
+    .masthead .x-mark {
+      position: static;
       display: block;
-      width: min(540px, calc(100% - 30px));
+      width: 100%;
       height: auto;
+      max-width: none;
       margin: 0;
     }
 
-    @media (max-width: 640px) {
-      .brand-logo {
-        width: min(360px, calc(100% - 8px));
-      }
-    }
-
-    @media (min-width: 641px) {
-      .masthead .x-mark {
-        width: 122px;
-        height: 122px;
-        top: -18px;
-        right: -15px;
-      }
+    .masthead .x-mark {
+      top: auto;
+      right: auto;
+      object-fit: contain;
+      opacity: 0.82;
     }
   </style>
 
@@ -61,8 +72,10 @@
 <body>
   <main class="shell">
     <header class="masthead">
-      <img class="x-mark" src="x-mark.png" alt="" aria-hidden="true" />
-      <img class="brand-logo" src="unaffiliated-wordmark.png" alt="UNAFFILIATED" />
+      <div class="brand-row">
+        <img class="brand-logo" src="unaffiliated-wordmark.png" alt="UNAFFILIATED" />
+        <img class="x-mark" src="x-mark-header.png" alt="" aria-hidden="true" />
+      </div>
       <div class="rule"></div>
       <p class="tagline">independent works / experiments / unfinished systems</p>
     </header>
